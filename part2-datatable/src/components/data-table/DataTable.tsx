@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, type ReactNode } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { cn } from '../../lib/cn'
 import { EXPANDER_ID, EXPANDER_WIDTH, cssVarId } from './cells'
 import { TableBody } from './TableBody'
@@ -99,7 +99,7 @@ export function DataTable<TRow, TChild = unknown>({
   }, [])
 
   const showError = !loading && error !== null
-
+  const [filter, setFilter] = useState<string | undefined>();
   return (
     <div
       className={cn(
@@ -107,6 +107,7 @@ export function DataTable<TRow, TChild = unknown>({
         className,
       )}
     >
+      filter value{filter}
       <div
         ref={scrollRef}
         className="group/scroll overflow-x-auto"
@@ -133,6 +134,10 @@ export function DataTable<TRow, TChild = unknown>({
             lastPinnedId={lastPinnedId}
             sort={model.sort}
             onToggleSort={model.toggleSort}
+            data={tableOptions.data}
+            filterValue={filter}
+            onFilterChange={setFilter}
+
           />
 
           <TableBody

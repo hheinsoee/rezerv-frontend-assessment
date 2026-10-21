@@ -31,6 +31,7 @@ export interface ColumnDef<TRow, TValue = unknown> {
   pinned?: 'left'
   align?: ColumnAlign
   headerSrOnly?: boolean
+  extra?: ReactNode
 }
 
 export type ChildStatus = 'idle' | 'loading' | 'ready' | 'error'
