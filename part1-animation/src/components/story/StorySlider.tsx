@@ -12,7 +12,7 @@ import { ArrowDown } from 'lucide-react'
 
 const LAYOUTS = SCENES.map((scene) => scene.layout)
 
-export function StorySlider({ revealed }: { revealed: boolean }) {
+export function StorySlider({ revealed }: { revealed: Boolean }) {
   const rootRef = useRef<HTMLDivElement>(null)
   const athleteRef = useRef<AthleteHandle>(null)
   const floatingRef = useRef<FloatingHandle>(null)
@@ -62,7 +62,6 @@ export function StorySlider({ revealed }: { revealed: boolean }) {
 
   return (
     <div ref={rootRef} className="relative">
-      {}
       <div className="sticky top-0 h-dvh overflow-hidden">
         {SCENES.map((scene) => (
           <div

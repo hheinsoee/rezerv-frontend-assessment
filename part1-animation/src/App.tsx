@@ -32,7 +32,7 @@ export default function App() {
         <Story revealed={phase !== 'loading'} reduced={reduced} />
       </main>
       <Chrome index={slider.index} count={SCENES.length} onGoTo={slider.goTo} reduced={reduced} />
-
+      
       <label className="fixed top-4 right-4 z-[var(--z-top)] flex items-center gap-2 text-xs text-paper/70 mix-blend-difference">
         <input
           type="checkbox"
@@ -41,7 +41,7 @@ export default function App() {
         />
         splash
       </label>
-
+    
       {phase === 'ready' ? null : (
         <Preloader
           sources={PRELOAD}
